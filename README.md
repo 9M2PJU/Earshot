@@ -33,10 +33,10 @@ chmod +x Earshot-*-x86_64.AppImage && ./Earshot-*-x86_64.AppImage
 ```
 
 ```bash
-# Arch: earshot-git rebuilds main on every install, so it is always the
-# latest commit. earshot-bin is the pinned release binary, no compile.
-yay -S earshot-git   # always latest
-yay -S earshot-bin   # pinned release, instant
+# Arch (both live on AUR): earshot-git rebuilds main on every install, so it
+# is always the latest commit. earshot-bin is the pinned release binary.
+yay -S earshot-git   # always latest ([aur](https://aur.archlinux.org/packages/earshot-git))
+yay -S earshot-bin   # pinned release, instant ([aur](https://aur.archlinux.org/packages/earshot-bin))
 ```
 
 All four install the same two binaries (`earshot-receiver`, `earshot-tray`),
