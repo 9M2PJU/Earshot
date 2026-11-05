@@ -63,19 +63,16 @@ AUR identity: account **9M2PJU**, SSH key `~/.ssh/aur`
 (`ssh://aur@aur.archlinux.org/...`, per `~/.ssh/config`).
 
 Each AUR package is its own tiny git repo on `aur.archlinux.org`, seeded
-from the matching directory in this repo. First time only:
+from the matching directory in this repo. Both are already published
+([earshot-git](https://aur.archlinux.org/packages/earshot-git),
+[earshot-bin](https://aur.archlinux.org/packages/earshot-bin)) — the
+first-time seed was a plain `git push` of each directory:
 
 ```sh
-# 1. Create the empty packages on https://aur.archlinux.org
-#    (Packages -> Submit: earshot-git, earshot-bin).
-# 2. Add your AUR ssh key to your account, then:
 git clone ssh://aur@aur.archlinux.org/earshot-git.git /tmp/aur-git
 cp packaging/aur/earshot-git/PKGBUILD packaging/aur/earshot-git/.SRCINFO /tmp/aur-git/
-cd /tmp/aur-git && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git commit -m "init" && git push
-
-git clone ssh://aur@aur.archlinux.org/earshot-bin.git /tmp/aur-bin
-cp packaging/aur/earshot-bin/PKGBUILD packaging/aur/earshot-bin/.SRCINFO /tmp/aur-bin/
-cd /tmp/aur-bin && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git commit -m "init" && git push
+cd /tmp/aur-git && git add PKGBUILD .SRCINFO && git commit -m "init" && git push
+# same for earshot-bin
 ```
 
 On every release (`vX.Y.Z` tag), bump `-bin`:
